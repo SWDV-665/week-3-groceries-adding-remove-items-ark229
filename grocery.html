@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<header lang="en">
+<title>Grocery List</title>
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Grocery List
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+</header>
+
+
+<ion-content>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Add items</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-list>
+    <ion-list>
+      <ion-item>
+        <ion-input label="Text input" placeholder="Enter item"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-input label="Number input" type="number" placeholder="000"></ion-input>
+      </ion-item>
+    </ion-list>
+  </ion-list>
+  <ion-button>Default</ion-button>
+  <ion-button [disabled]="true">Disabled</ion-button>
+
+</ion-content>
+
+
+<ion-content>
+  <ion-list-header>Grocery List</ion-list-header>
+  <ion-list>
+    <ion-item-sliding>  *ngFor="list of items"
+      <ion-item>
+        <h2>{{item.name}}</h2>
+        <p>{{item.quantity}}</p>
+      </ion-item>
+      <ion-item-options> 
+        <button (click)="removeitem(item)" ion-button color="secondary" icon-start>
+        <ion-icon name="delete"></ion-icon>
+        done 
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+  </ion-list>
+
+
+<ion-fab middle right edge>
+  <button (click)="additem()" ion-fab-mini><ion-icon name="add" ></ion-icon></button>
+</ion-fab>
+
+<ion-fab middle right edge>
+  <button (click)="removeitem(item)" ion-fab-mini><ion-icon name="remove" ></ion-icon></button>
+</ion-fab>
